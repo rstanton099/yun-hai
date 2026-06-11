@@ -34,7 +34,7 @@ The Express server serves the built React app from `dist/` and handles `/api` ro
 1. Push this repo to GitHub or GitLab.
 2. In [Render](https://render.com), create a **New Web Service** and connect the repo.
 3. Render will detect `render.yaml`, or set manually:
-   - **Build command:** `npm install && npm run build`
+   - **Build command:** `npm install --include=dev && npm run build`
    - **Start command:** `npm start`
    - **Runtime:** Node 20+
 4. Add an environment variable:

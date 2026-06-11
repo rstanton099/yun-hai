@@ -11,6 +11,7 @@
     "client": "vite",
     "server": "node server/index.js",
     "build": "vite build",
+    "render-build": "npm install --include=dev && npm run build",
     "start": "node server/index.js",
     "lint": "eslint .",
     "preview": "vite preview"
