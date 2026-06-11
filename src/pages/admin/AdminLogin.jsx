@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { adminLogin, getAdminToken, setAdminToken } from '../../utils/api';
+import { adminLogin, setAdminToken, verifyAdminSession } from '../../utils/api';
 
 function AdminLogin() {
   const navigate = useNavigate();
@@ -9,10 +9,9 @@ function AdminLogin() {
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    const token = getAdminToken();
-    if (token && token.length >= 32) {
-      navigate('/admin/bookings', { replace: true });
-    }
+    verifyAdminSession().then((valid) => {
+      if (valid) navigate('/admin/bookings', { replace: true });
+    });
   }, [navigate]);
 
   const handleSubmit = async (e) => {
@@ -31,7 +30,7 @@ function AdminLogin() {
       } else if (message.toLowerCase().includes('invalid password')) {
         setError('Invalid password. Please try again.');
       } else if (message === 'Failed to fetch' || message.includes('NetworkError')) {
-        setError('Cannot reach the server. Run npm run dev from the yun-hai folder, then use the URL it prints (e.g. http://localhost:5175).');
+        setError('Cannot reach the server. If this is on Render, wait a minute for the app to wake up and try again.');
       } else {
         setError(message || 'Login failed. Please try again.');
       }
@@ -75,7 +74,7 @@ function AdminLogin() {
           </button>
 
           <p className="text-xs text-gray-400 text-center pt-2 font-admin">
-            Default password: yunhai-admin
+            Default password: yunhai-admin (unless ADMIN_PASSWORD is set on the server)
           </p>
         </form>
       </div>

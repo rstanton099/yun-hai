@@ -75,6 +75,24 @@ async function adminFetch(path, options = {}) {
   return body;
 }
 
+export async function verifyAdminSession() {
+  const token = getAdminToken();
+  if (!token) return false;
+
+  try {
+    const res = await fetch(`${API_BASE}/admin/overview`, {
+      headers: { Authorization: `Bearer ${token}` },
+    });
+    if (res.status === 401) {
+      clearAdminToken();
+      return false;
+    }
+    return res.ok;
+  } catch {
+    return false;
+  }
+}
+
 export async function adminLogin(password) {
   const res = await fetch(`${API_BASE}/admin/login`, {
     method: 'POST',
