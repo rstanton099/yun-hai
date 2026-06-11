@@ -1,0 +1,134 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply font-sans text-yun-ink antialiased;
+  }
+}
+
+@layer components {
+  .page-container {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  .section-heading {
+    @apply font-display text-3xl md:text-4xl font-semibold text-yun-charcoal tracking-tight;
+  }
+
+  .section-subheading {
+    @apply font-serif text-yun-gold text-lg tracking-widest;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center px-6 py-3 bg-yun-red text-white font-medium tracking-wide uppercase text-sm transition-all duration-300 hover:bg-yun-red-dark hover:shadow-lg;
+  }
+
+  .btn-outline {
+    @apply inline-flex items-center justify-center px-6 py-3 border-2 border-yun-gold text-yun-gold font-medium tracking-wide uppercase text-sm transition-all duration-300 hover:bg-yun-gold hover:text-yun-charcoal;
+  }
+
+  .hero-cta {
+    @apply inline-flex items-center justify-center h-14 w-64
+           font-display text-lg font-medium tracking-[0.06em]
+           bg-black/25 text-white border border-white/40 backdrop-blur-sm
+           transition-all duration-300 ease-out
+           hover:bg-yun-red hover:text-white hover:border-yun-red hover:shadow-lg;
+  }
+
+  .gold-divider {
+    @apply flex items-center gap-4 my-6;
+  }
+
+  .gold-divider::before,
+  .gold-divider::after {
+    content: '';
+    @apply flex-1 h-px bg-yun-gold/40;
+  }
+
+  .menu-item {
+    @apply flex justify-between items-baseline gap-4 py-3 border-b border-yun-gold/20 last:border-0;
+  }
+
+  .menu-item-dots {
+    @apply flex-1 border-b border-dotted border-yun-gold/30 mb-1;
+  }
+
+  .admin-shell {
+    @apply min-h-screen bg-[#f4f5f7] text-yun-ink antialiased;
+    font-family: 'DM Sans', 'Source Sans 3', system-ui, sans-serif;
+  }
+
+  .admin-stat-value {
+    @apply text-4xl font-semibold tabular-nums tracking-tight leading-none mt-3;
+    font-family: 'DM Sans', 'Source Sans 3', system-ui, sans-serif;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .admin-stat-label {
+    @apply text-xs font-medium uppercase tracking-wider text-gray-500;
+  }
+
+  .admin-card {
+    @apply bg-white rounded-xl border border-gray-200/80 shadow-sm;
+  }
+
+  .admin-panel-header {
+    @apply px-6 py-4 border-b border-gray-100 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4;
+  }
+
+  .admin-heading {
+    @apply text-xl font-semibold text-yun-charcoal tracking-tight;
+    font-family: 'DM Sans', 'Source Sans 3', system-ui, sans-serif;
+  }
+
+  .admin-subheading {
+    @apply text-2xl font-semibold text-yun-charcoal tracking-tight;
+    font-family: 'DM Sans', 'Source Sans 3', system-ui, sans-serif;
+  }
+
+  .admin-input {
+    @apply px-3 py-2 text-sm border border-gray-200 rounded-lg bg-white
+      focus:outline-none focus:ring-2 focus:ring-yun-red/20 focus:border-yun-red/40 transition-shadow;
+    font-family: 'DM Sans', 'Source Sans 3', system-ui, sans-serif;
+  }
+
+  .admin-btn {
+    @apply px-4 py-2 text-sm font-medium rounded-lg transition-colors;
+    font-family: 'DM Sans', 'Source Sans 3', system-ui, sans-serif;
+  }
+
+  .admin-btn-primary {
+    @apply admin-btn bg-yun-charcoal text-white hover:bg-yun-ink;
+  }
+
+  .admin-btn-ghost {
+    @apply admin-btn text-gray-600 hover:text-yun-charcoal hover:bg-gray-100;
+  }
+
+  .admin-table th {
+    @apply px-6 py-3 text-left text-xs font-semibold uppercase tracking-wider text-gray-500 bg-gray-50/80;
+  }
+
+  .admin-table td {
+    @apply px-6 py-4 text-sm;
+    font-family: 'DM Sans', 'Source Sans 3', system-ui, sans-serif;
+  }
+
+  .admin-nav-link {
+    @apply px-4 py-2.5 text-sm font-medium rounded-lg transition-colors;
+  }
+
+  .admin-nav-link-active {
+    @apply admin-nav-link bg-yun-charcoal text-white;
+  }
+
+  .admin-nav-link-inactive {
+    @apply admin-nav-link text-gray-600 hover:bg-gray-100 hover:text-yun-charcoal;
+  }
+}
